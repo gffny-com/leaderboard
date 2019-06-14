@@ -2,6 +2,12 @@
     "leaderboards": [
         {
             "id": "abcd-1234-efgh-5678",
+            "roundHeaders": [
+                "R1",
+                "R2",
+                "R3",
+                "R4"
+            ],
             "players": [
                 {
                     "name": "John Gaffney",
