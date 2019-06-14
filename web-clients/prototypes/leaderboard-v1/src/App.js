@@ -1,27 +1,28 @@
 import React from 'react';
 import './App.css';
+import { LeaderboardViewContainer } from './containers/LeaderboardViewContainer';
 import { ScorecardViewContainer } from './containers/ScorecardViewContainer';
-
-import { HOLE_6_PLAYER_1234_SCORE_UPDATE, HOLE_5_PLAYER_1234_SCORE_UPDATE } from './actions/ScorecardActions';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
 
-import { scorecardStore } from './stores/ScorecardStore';
-
-scorecardStore.dispatch({ type: 'INIT' });
+// create the application store
+import { leaderboardReducer } from './reducers/LeaderboardReducer';
+import { createStore } from './utils';
+export const leaderboardStore = createStore(leaderboardReducer);
+leaderboardStore.dispatch({ type: 'INIT' });
 
 function App() {
   return (
-    <div className="App">
-      <Provider store={scorecardStore}>
-        <ScorecardViewContainer />
+    <div className='App'>
+      <Provider store={leaderboardStore}>
+        <Router>
+          <Route path='/leaderboard/:id' component={LeaderboardViewContainer} />
+          <Route path='/round/:id' component={ScorecardViewContainer} />
+          <Route path='/round/play' component={ScorecardViewContainer} />
+        </Router>
       </Provider>
     </div>
   );
 }
-
-setTimeout(() => scorecardStore.dispatch(HOLE_6_PLAYER_1234_SCORE_UPDATE), 2000);
-
-//setTimeout(() => scorecardStore.dispatch(HOLE_5_PLAYER_1234_SCORE_UPDATE), 2000);
 
 export default App;
