@@ -2,6 +2,7 @@
     "packages": [
         "common/*",
         "services/*/*",
+        "services/mock-server",
         "web-clients/prototypes/*"
     ],
     "version": "1.76.0"
