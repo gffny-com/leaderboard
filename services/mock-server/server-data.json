@@ -1,0 +1,124 @@
+{
+    "leaderboards": [
+        {
+            "id": "abcd-1234-efgh-5678",
+            "roundList": [
+                {
+                    "id": "round-1234",
+                    "index": 1,
+                    "courseId": "",
+                    "tee": "blue",
+                    "playerData": [
+                        {
+                            "player": {
+                                "id": "player-1234",
+                                "displayName": "John D. Gaffney",
+                                "handicap": 4
+                            },
+                            "score": [
+                                4,
+                                4,
+                                5,
+                                4,
+                                3,
+                                4,
+                                5,
+                                4,
+                                3
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "courses": [
+        {
+            "id": "1234-abcd-5678-efgh",
+            "name": "Pebble Beach",
+            "holes": [
+                {
+                    "number": 1,
+                    "index": 8,
+                    "par": 4,
+                    "blue": 377,
+                    "gold": 346,
+                    "white": 332,
+                    "red": 309
+                },
+                {
+                    "number": 2,
+                    "index": 10,
+                    "par": 5,
+                    "blue": 511,
+                    "gold": 460,
+                    "white": 428,
+                    "red": 360
+                },
+                {
+                    "number": 3,
+                    "index": 12,
+                    "par": 4,
+                    "blue": 377,
+                    "gold": 346,
+                    "white": 332,
+                    "red": 309
+                },
+                {
+                    "number": 4,
+                    "index": 16,
+                    "par": 4,
+                    "blue": 377,
+                    "gold": 346,
+                    "white": 332,
+                    "red": 309
+                },
+                {
+                    "number": 5,
+                    "index": 14,
+                    "par": 3,
+                    "blue": 377,
+                    "gold": 346,
+                    "white": 332,
+                    "red": 309
+                },
+                {
+                    "number": 6,
+                    "index": 2,
+                    "par": 5,
+                    "blue": 377,
+                    "gold": 346,
+                    "white": 332,
+                    "red": 309
+                },
+                {
+                    "number": 7,
+                    "index": 18,
+                    "par": 3,
+                    "blue": 377,
+                    "gold": 346,
+                    "white": 332,
+                    "red": 309
+                },
+                {
+                    "number": 8,
+                    "index": 6,
+                    "par": 4,
+                    "blue": 377,
+                    "gold": 346,
+                    "white": 332,
+                    "red": 309
+                },
+                {
+                    "number": 9,
+                    "index": 5,
+                    "par": 4,
+                    "blue": 377,
+                    "gold": 346,
+                    "white": 332,
+                    "red": 309
+                }
+            ]
+        }
+    ]
+}
