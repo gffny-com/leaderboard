@@ -1,58 +1,105 @@
 import React from 'react';
 
+let mockLeaderboard = {
+    "roundHeaders": ["R1", "R2", "R3", "R4"],
+    "players": [
+        {
+            "name": "John Gaffney",
+            "handicap": 24,
+            "rounds": [{
+                "round": 1,
+                "gross": 101,
+                "net": 77,
+                "score": 30,
+                "holes": [{
+                    "gross": "6",
+                    "net": "5",
+                    "score": "2"
+                }, {
+                    "gross": "6",
+                    "net": "5",
+                    "score": "2"
+                }, {
+                    "gross": "6",
+                    "net": "5",
+                    "score": "2"
+                }]
+            }]
+        }
+    ]
+};
+
 export const LeaderboardView = ({
-    course,
-    playerData
+    leaderboard = mockLeaderboard
 }) => {
     return <>
         <table class='gffny-leaderboard'>
             <thead>
                 <tr>
-                    <td></td>
-                    {course.holes.map((hole, index) => <td key={index}>{hole.number}</td>)}
+                    <th></th>
+                    {leaderboard.roundHeaders.map((header) => <th>{header}</th>)}
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Index</td>
-                    {course.holes.map((hole, index) => <td key={index} >{hole.index}</td>)}
-                </tr>
-                <tr>
-                    <td>Par</td>
-                    {course.holes.map((hole, index) => <td key={index}>{hole.par}</td>)}
-                </tr>
-                <tr>
-                    <td>Blue</td>
-                    {course.holes.map((hole, index) => <td key={index}>{hole.blue}</td>)}
-                </tr>
-                <tr>
-                    <td>Gold</td>
-                    {course.holes.map((hole, index) => <td key={index}>{hole.gold}</td>)}
-                </tr>
-                <tr>
-                    <td>White</td>
-                    {course.holes.map((hole, index) => <td key={index}>{hole.white}</td>)}
-                </tr>
-                <tr>
-                    <td>Red</td>
-                    {course.holes.map((hole, index) => <td key={index}>{hole.red}</td>)}
-                </tr>
-                {playerData.map((data) => <>
-                    <tr key={data.player.id}>
-                        <td key={data.player.id}>{data.player.displayName}</td>
-                        {data.score.map((holeScore, index) => <td key={index}>{holeScore}</td>)}
-                    </tr>
-                    <tr>
-                        <td>To Par</td>
-                        {data.score.map((holeScore, index) => {
-                            let toPar = holeScore - course.holes[index].par;
-                            let scoreType = toPar < 0 ? 'good' : toPar > 0 ? 'bad' : 'ok';
-                            return <td key={index} data-score-type={scoreType}>{toPar}</td>
-                        })}
-                    </tr>
-                </>
-                )}
+                {leaderboard.players.map((player) => <LeaderboardRowView player={player} />)}
             </tbody>
         </table>
     </>;
+};
+
+const LeaderboardRowView = ({
+    player
+}) => {
+    return <>
+        <tr>
+            <th>{player.name}</th>
+            {player.rounds.map((round) => <LeaderboardRowRoundView round={round} />)}
+        </tr>
+    </>
+};
+
+const LeaderboardRowRoundView = ({
+    round
+}) => {
+    return <>
+        <td>
+            <span>{round.gross}</span>
+            <span> | </span>
+            <span>{round.score}</span>
+        </td>
+    </>
+};
+
+/**
+ * MOCK LEADERBOARD
+ */
+/*
+{
+    "roundHeaders": ["R1", "R2", "R3", "R4"],
+    "players": [
+        {
+            "name": "John Gaffney",
+            "handicap": 24,
+            "rounds": [{
+                "round": 1,
+                "gross": 101,
+                "net": 77,
+                "score": 30,
+                "holes": [{
+                    "gross": "6",
+                    "net": "5",
+                    "score": "2"
+                }, {
+                    "gross": "6",
+                    "net": "5",
+                    "score": "2"
+                },{
+                    "gross": "6",
+                    "net": "5",
+                    "score": "2"
+                }]
+            }]
+        }
+    ]
 }
+*/
