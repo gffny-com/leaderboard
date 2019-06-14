@@ -1,0 +1,8 @@
+{
+    "packages": [
+        "common/*",
+        "services/*/*",
+        "web-clients/prototypes/*"
+    ],
+    "version": "1.76.0"
+}
