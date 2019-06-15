@@ -1,5 +1,6 @@
 import React from 'react';
 import { map } from 'lodash/fp';
+import { clone } from 'lodash';
 
 // https://github.com/lodash/lodash/wiki/FP-Guide
 
@@ -31,8 +32,22 @@ export const createStore = (reducerFn) => {
       };
     },
   };
-
 };
+
+export const hasRoundData = (round) => {
+  return (round && (round.gross || round.net || round.score));
+};
+
+export const normalizeRoundData = (round) => {
+  let normalizedRound = clone(round);
+  if (!normalizedRound) {
+    normalizedRound = {};
+  }
+  normalizedRound.score = normalizedRound.score ? normalizedRound.score : 0;
+  normalizedRound.net = normalizedRound.net ? normalizedRound.net : 0;
+  normalizedRound.gross = normalizedRound.gross ? normalizedRound.gross : 0;
+  return normalizedRound;
+}
 
 export const bindActionCreators = (actions, dispatch) => {
   return Object.keys(actions).reduce((boundActions, actionKey) => {

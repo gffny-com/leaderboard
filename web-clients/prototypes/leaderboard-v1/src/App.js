@@ -6,9 +6,19 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
 
 // create the application store
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import { leaderboardReducer } from './reducers/LeaderboardReducer';
-import { createStore } from './utils';
-export const leaderboardStore = createStore(leaderboardReducer);
+import { IS_PRODUCTION } from './configs';
+
+const middleware = IS_PRODUCTION
+  ? applyMiddleware(thunk)
+  : composeWithDevTools(applyMiddleware(thunk));
+
+
+export const leaderboardStore = createStore(leaderboardReducer, middleware);
 leaderboardStore.dispatch({ type: 'INIT' });
 
 function App() {

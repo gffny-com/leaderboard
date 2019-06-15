@@ -26,7 +26,6 @@ const playerDataReducer = (state = mockPlayerData, action) => {
         let playerIndex = newState.findIndex(pd => pd.player.id === holeScore.playerId);
         // call new reducer that takes the 
         newState[playerIndex].score[holeScore.holeNumber - 1] = holeScore.score;
-        console.log(`newState[${playerIndex}].score[${holeScore.holeNumber - 1}]: ${newState[playerIndex].score[holeScore.holeNumber - 1]}`);
         return newState;
     });
 };
@@ -53,14 +52,14 @@ export const scorecardReducer = (state = {}, action) => {
     };
 };
 
-export const leaderboardReducer = (state, action) => {
+export const leaderboardReducer = (state = {}, action) => {
     switch (action.type) {
         case REFRESH_LEADERBOARD_REQUEST:
             // show refreshing state?
             return state;
         case REFRESH_LEADERBOARD_COMPLETE:
             let newState = clone(state);
-            newState.leaderboardData = action.payload;
+            newState.leaderboard = action.payload;
             return newState;
         default:
             return state;

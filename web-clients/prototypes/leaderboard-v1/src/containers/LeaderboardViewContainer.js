@@ -5,7 +5,7 @@ import { refreshLeaderboardAction } from '../actions/LeaderboardActions';
 
 const createLeaderboardViewContainer = connect(
     (state) => ({
-        leaderboard: state.leaderboardData
+        leaderboard: state.leaderboard
     }),
     (dispatch) => bindActionCreators({
         onLeaderboardUpdate: refreshLeaderboardAction,
