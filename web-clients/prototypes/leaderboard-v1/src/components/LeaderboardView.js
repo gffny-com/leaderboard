@@ -30,10 +30,12 @@ let mockLeaderboard = {
 };
 
 export const LeaderboardView = ({
-    leaderboard = mockLeaderboard
+    leaderboard = mockLeaderboard,
+    onLeaderboardUpdate
 }) => {
+
     return <>
-        <table class='gffny-leaderboard'>
+        <table className='gffny-leaderboard'>
             <thead>
                 <tr>
                     <th></th>

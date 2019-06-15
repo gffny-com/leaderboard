@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { LeaderboardView } from '../components/LeaderboardView';
-import { createHoleUpdateAction } from '../actions/ScorecardActions';
+import { refreshLeaderboardAction } from '../actions/LeaderboardActions';
 
 const createLeaderboardViewContainer = connect(
     (state) => ({
-        course: state.course,
-        playerData: state.playerData,
+        leaderboard: state.leaderboardData
     }),
     (dispatch) => bindActionCreators({
-        onHoleUpdate: createHoleUpdateAction,
+        onLeaderboardUpdate: refreshLeaderboardAction,
     }, dispatch)
 );
 

@@ -1,4 +1,6 @@
 import { HOLE_UPDATED } from '../actions/ScorecardActions';
+import { REFRESH_LEADERBOARD_REQUEST, REFRESH_LEADERBOARD_COMPLETE } from '../actions/LeaderboardActions';
+
 import { clone } from 'lodash';
 
 const scoreReducer = (state = mockPlayerData, action) => {
@@ -52,7 +54,17 @@ export const scorecardReducer = (state = {}, action) => {
 };
 
 export const leaderboardReducer = (state, action) => {
-    return state;
+    switch (action.type) {
+        case REFRESH_LEADERBOARD_REQUEST:
+            // show refreshing state?
+            return state;
+        case REFRESH_LEADERBOARD_COMPLETE:
+            let newState = clone(state);
+            newState.leaderboardData = action.payload;
+            return newState;
+        default:
+            return state;
+    }
 };
 
 /*
