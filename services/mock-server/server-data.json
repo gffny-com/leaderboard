@@ -334,5 +334,53 @@
                 }
             ]
         }
+    ],
+    "rounds": [
+        {
+            "id": "abcd-1234-efgh-5678",
+            "course": {
+                "id": "1234-abcd-5678-efgh"
+            },
+            "players": [
+                {
+                    "name": "John Gaffney",
+                    "handicap": 24,
+                    "rounds": [
+                        {
+                            "round": 1,
+                            "gross": 101,
+                            "net": 77,
+                            "score": 30,
+                            "tees": "Blue",
+                            "isComplete": false,
+                            "is9Hole": true,
+                            "holes": [
+                                {
+                                    "gross": "6",
+                                    "net": "5",
+                                    "score": "2"
+                                },
+                                {},
+                                {},
+                                {
+                                    "gross": "6",
+                                    "net": "5",
+                                    "score": "2"
+                                },
+                                {
+                                    "gross": "6",
+                                    "net": "5",
+                                    "score": "2"
+                                },
+                                {},
+                                {},
+                                {},
+                                {}
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     ]
 }

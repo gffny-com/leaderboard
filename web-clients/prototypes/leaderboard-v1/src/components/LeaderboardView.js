@@ -1,35 +1,6 @@
 import React from 'react';
 import { normalizeRoundData } from '../utils';
 
-// let mockLeaderboard = {
-//     "roundHeaders": ["R1", "R2", "R3", "R4"],
-//     "players": [
-//         {
-//             "name": "John Gaffney",
-//             "handicap": 24,
-//             "rounds": [{
-//                 "round": 1,
-//                 "gross": 101,
-//                 "net": 77,
-//                 "score": 30,
-//                 "holes": [{
-//                     "gross": "6",
-//                     "net": "5",
-//                     "score": "2"
-//                 }, {
-//                     "gross": "6",
-//                     "net": "5",
-//                     "score": "2"
-//                 }, {
-//                     "gross": "6",
-//                     "net": "5",
-//                     "score": "2"
-//                 }]
-//             }]
-//         }
-//     ]
-// };
-
 export const LeaderboardView = ({
     match,
     leaderboard,
@@ -87,29 +58,22 @@ const LeaderboardRowRoundView = ({
     isTotal
 }) => {
     if (Object.keys(round).length === 0 || !round.score || !round.gross) {
-        console.log(`not rendering ${JSON.stringify(round)}`);
         return <>
-            <td></td>
-        </>;
-    }
-    if (isTotal) {
-        console.log('rendering total');
-        return <>
-            <td className='total'>
-                <span>{round.gross}</span>
-                <span> | </span>
-                <span>{round.score}</span>
-            </td>
+            <td>/</td>
         </>;
     }
     return <>
-        <td>
+        {isTotal && <td className='total'>
             <span>{round.gross}</span>
             <span> | </span>
             <span>{round.score}</span>
-        </td>
+        </td>}
+        {!isTotal && <td >
+            <span>{round.gross}</span>
+            <span> | </span>
+            <span>{round.score}</span>
+        </td>}
     </>;
-
 };
 
 /**
@@ -117,31 +81,42 @@ const LeaderboardRowRoundView = ({
  */
 /*
 {
-    "roundHeaders": ["R1", "R2", "R3", "R4"],
-    "players": [
+  "roundHeaders": [
+    "R1",
+    "R2",
+    "R3",
+    "R4"
+  ],
+  "players": [
+    {
+      "name": "John Gaffney",
+      "handicap": 24,
+      "rounds": [
         {
-            "name": "John Gaffney",
-            "handicap": 24,
-            "rounds": [{
-                "round": 1,
-                "gross": 101,
-                "net": 77,
-                "score": 30,
-                "holes": [{
-                    "gross": "6",
-                    "net": "5",
-                    "score": "2"
-                }, {
-                    "gross": "6",
-                    "net": "5",
-                    "score": "2"
-                },{
-                    "gross": "6",
-                    "net": "5",
-                    "score": "2"
-                }]
-            }]
+          "round": 1,
+          "gross": 101,
+          "net": 77,
+          "score": 30,
+          "holes": [
+            {
+              "gross": "6",
+              "net": "5",
+              "score": "2"
+            },
+            {
+              "gross": "6",
+              "net": "5",
+              "score": "2"
+            },
+            {
+              "gross": "6",
+              "net": "5",
+              "score": "2"
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }
 */

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { LeaderboardView } from '../components/LeaderboardView';
 import { refreshLeaderboardAction } from '../actions/LeaderboardActions';
 
-const createLeaderboardViewContainer = connect(
+const createViewContainer = connect(
     (state) => ({
         leaderboard: state.leaderboard
     }),
@@ -12,4 +12,4 @@ const createLeaderboardViewContainer = connect(
     }, dispatch)
 );
 
-export const LeaderboardViewContainer = createLeaderboardViewContainer(LeaderboardView);
+export const LeaderboardViewContainer = createViewContainer(LeaderboardView);
