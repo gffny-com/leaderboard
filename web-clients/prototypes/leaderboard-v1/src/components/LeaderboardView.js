@@ -45,7 +45,6 @@ const LeaderboardRowView = ({
                 total.gross += normalizeRound.gross;
                 total.net += normalizeRound.net;
                 total.score += normalizeRound.score;
-                console.log(`subtotaling ${player.name} ${JSON.stringify(total)}`);
                 return <LeaderboardRowRoundView round={round} key={index} />
             })}
             <LeaderboardRowRoundView round={total} isTotal={true} />
