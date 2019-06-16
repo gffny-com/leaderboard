@@ -1,1 +1,3 @@
-lerna run build --stream
+lerna bootstrap || exit $?
+
+lerna run build --stream || exit $?
