@@ -30,30 +30,30 @@ const CourseTableHeadView = ({
             <thead>
                 <tr>
                     <td></td>
-                    {course.holes.map((hole, index) => <td key={index}>{hole.number}</td>)}
+                    {course.holes.map((hole, index) => <th key={index}>{hole.number}</th>)}
                 </tr>
                 <tr>
-                    <td>Index</td>
+                    <th>Index</th>
                     {course.holes.map((hole, index) => <td key={index} >{hole.index}</td>)}
                 </tr>
                 <tr>
-                    <td>Par</td>
+                    <th>Par</th>
                     {course.holes.map((hole, index) => <td key={index}>{hole.par}</td>)}
                 </tr>
                 <tr>
-                    <td>Blue</td>
+                    <th>Blue</th>
                     {course.holes.map((hole, index) => <td key={index}>{hole.blue}</td>)}
                 </tr>
                 <tr>
-                    <td>Gold</td>
+                    <th>Gold</th>
                     {course.holes.map((hole, index) => <td key={index}>{hole.gold}</td>)}
                 </tr>
                 <tr>
-                    <td>White</td>
+                    <th>White</th>
                     {course.holes.map((hole, index) => <td key={index}>{hole.white}</td>)}
                 </tr>
                 <tr>
-                    <td>Red</td>
+                    <th>Red</th>
                     {course.holes.map((hole, index) => <td key={index}>{hole.red}</td>)}
                 </tr>
             </thead>
