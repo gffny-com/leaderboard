@@ -30,7 +30,7 @@ functions: # Reference to serverless config file specifying lambda functions con
 # custom: # Reference to serverless config file containing additional configuration like that required by serverless plugins
 #   ${file(./config/custom.serverless.yml):${opt:stage}}
 custom:
-  serviceName: leaderboard-service-${opt:stage}
+  serviceName: leaderboard-service
 
 plugins: # Serverless plugins (note: cannot be moved to an external file)
   - serverless-offline
