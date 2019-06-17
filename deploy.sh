@@ -1,1 +1,1 @@
-lerna run deploy --stream
+lerna run deploy --stream -- ${environment} || exit $?
