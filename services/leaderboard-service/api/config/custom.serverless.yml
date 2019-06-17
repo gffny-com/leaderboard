@@ -38,11 +38,11 @@ dev: # dev/qa env config
 
   host: "leaderboard.api.gffny.com" # used for swagger API docs endpoint
 
-  customDomain:
-    domainName: leaderboard.api.qa.gffny.com
-    basePath: ''
-    stage: ${self:provider.stage}
-    createRoute53Record: true
+  #customDomain:
+  #  domainName: leaderboard.api.qa.gffny.com
+  #  basePath: ''
+  #  stage: ${self:provider.stage}
+  #  createRoute53Record: true
 
 qa: # qa env config
   environment: 
