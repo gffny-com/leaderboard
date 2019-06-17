@@ -7,7 +7,7 @@ provider: # General deployment information for the service in AWS
   region: ${opt:region, 'us-west-1'}
   stackName: ${self:custom.serviceName}-${opt:stage}
   deploymentBucket:
-    name: gffny-${self:custom.serviceName}-${opt:stage}
+    name: ${opt:stage}-gffny-${self:custom.serviceName}
     tags:
       Environment: ${opt:stage}
       Application: ${self:provider.stackName}
