@@ -19,9 +19,9 @@ const sendJSONRes = (status, body) => {
         body: JSON.stringify(body)
     };
     return response;
-}
+};
 
-const getLeaderboard = async (event, context, callback) => {
+const getLeaderboard = async (event) => {
     const mockLeaderboard = {};
     mockLeaderboard.id = event.pathParameters.id;
     mockLeaderboard.roundHeaders = [
