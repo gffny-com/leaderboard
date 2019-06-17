@@ -20,5 +20,5 @@ jobs:
     - stage: "Push to Prod"
       if: branch = master AND type != pull_request
       name: "Push to Prod"
-      script: "./build.sh || exit $?; ./deploy.sh || exit $?;"
+      script: "./build.sh || exit $?; ./deploy.sh DEV || exit $?;"
       #Trigger for CI/CD To be Added srtacks separation

@@ -1,0 +1,94 @@
+local: # local developer env config
+  environment:
+    NODE_TLS_REJECT_UNAUTHORIZED: 0
+    CONFIG_JSON_FILE: './config/service-local.config.json'
+
+  serviceName: "leaderboard-service"
+
+  stage: ${opt:stage, self:provider.stage}
+
+  documentation: # used by serverless-aws-documentation 
+    ${file(./config/documentation.serverless.yml)}
+
+  modelSchemas: # used by serverless-aws-documentation 
+    ${file(./config/documentation.serverless.yml):modelSchemas}
+
+  host: "leaderboard.api.dev.gffny.com" # used for swagger API docs endpoint
+
+  ##### Local Environment specific configuration ####
+
+  serverless-offline: # port used for locally running service
+    port: 4001
+
+dev: # dev/qa env config
+  environment: 
+    NODE_TLS_REJECT_UNAUTHORIZED: 0
+
+  serviceName: "leaderboard-service"
+
+  stage: ${opt:stage, self:provider.stage}
+
+  documentation: # used by serverless-aws-documentation 
+    ${file(./config/documentation.serverless.yml)}
+
+  modelSchemas: # used by serverless-aws-documentation 
+    ${file(./config/documentation.serverless.yml):modelSchemas}
+
+  ### Dev/QA Environment specific configuration ###
+
+  host: "leaderboard.api.gffny.com" # used for swagger API docs endpoint
+
+  customDomain:
+    domainName: leaderboard.api.qa.gffny.com
+    basePath: ''
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+
+qa: # qa env config
+  environment: 
+    NODE_TLS_REJECT_UNAUTHORIZED: 0
+
+  serviceName: "leaderboard-service"
+
+  stage: ${opt:stage, self:provider.stage}
+
+  documentation: # used by serverless-aws-documentation 
+    ${file(./config/documentation.serverless.yml)}
+
+  modelSchemas: # used by serverless-aws-documentation 
+    ${file(./config/documentation.serverless.yml):modelSchemas}
+
+  ### Dev/QA Environment specific configuration ###
+
+  host: "leaderboard.api.gffny.com" # used for swagger API docs endpoint
+
+  customDomain:
+    domainName: leaderboard.api.ga.gffny.com
+    basePath: ''
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+
+prod: # production env config
+  environment: 
+    NODE_TLS_REJECT_UNAUTHORIZED: 0
+    CONFIG_PARAM_STORE_BASE_PATH: '/apollo/shared-services/prod'
+
+  serviceName: "funding-management-service"
+
+  stage: ${opt:stage, self:provider.stage}
+
+  documentation: # used by serverless-aws-documentation 
+    ${file(./config/documentation.serverless.yml)}
+
+  modelSchemas: # used by serverless-aws-documentation 
+    ${file(./config/documentation.serverless.yml):modelSchemas}
+
+  ### Prod Environment specific configuration ###
+
+  host: "leaderboard.api.prod.gffny.com" # used for swagger API docs endpoint
+
+  customDomain:
+    domainName: leaderboard.api.prod.gffny.com
+    basePath: ''
+    stage: ${self:provider.stage}
+    createRoute53Record: true

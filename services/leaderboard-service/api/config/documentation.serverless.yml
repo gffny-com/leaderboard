@@ -1,0 +1,33 @@
+api:
+  info:
+    description: "Leaderboard API"
+    version: "0.1"
+    title: "Leaderboard API"
+  host: ${file(./config/custom.serverless.yml):${opt:stage}.host}
+  basePath: "/${opt:stage}"
+
+getLeaderboard:
+  tags:
+      - leaderboards
+  summary: "Retrieve leaderboard details"
+  description: "Retrieve leaderboard details"
+  methodResponses:
+    -
+      statusCode: "200"
+      responseBody:
+        description: "Response Body Description"
+      responseModels:
+        "application/json": "Leaderboard"
+    -
+      statusCode: "404"
+      responseBody:
+        description: "Leaderboard not found"
+
+modelSchemas:
+  GetLeaderboardResponse:
+    type: "object"
+    required: 
+      - "id"
+    properties:
+      id:
+        type: string

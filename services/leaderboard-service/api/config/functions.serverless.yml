@@ -1,0 +1,14 @@
+getLeaderboard:
+  handler: src/handlers/leaderboards.getLeaderboard
+  name: ${opt:stage}-getLeaderboard
+  events:
+    - http:
+        path: leaderboards/{id}
+        method: get
+        cors: ${file(../../.common/configs/api-gw-cors-no-auth.serverless.yml)}
+        documentation:
+          ${file(./config/documentation.serverless.yml):getLeaderboard}
+        request:
+          parameters:
+            paths:
+              id: true
