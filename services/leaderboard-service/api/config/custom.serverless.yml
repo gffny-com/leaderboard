@@ -36,10 +36,10 @@ dev: # dev/qa env config
 
   ### Dev/QA Environment specific configuration ###
 
-  host: "leaderboard.api.dev.gffny.com" # used for swagger API docs endpoint
+  host: "api.dev.leaderboard.gffny.com" # used for swagger API docs endpoint
 
   customDomain:
-    domainName: leaderboard.api.dev.gffny.com
+    domainName: api.dev.leaderboard.gffny.com
     basePath: ''
     stage: ${self:provider.stage}
     createRoute53Record: true
@@ -60,10 +60,10 @@ qa: # qa env config
 
   ### Dev/QA Environment specific configuration ###
 
-  host: "leaderboard.api.gffny.com" # used for swagger API docs endpoint
+  host: "api.qa.leaderboard.gffny.com" # used for swagger API docs endpoint
 
   customDomain:
-    domainName: leaderboard.api.ga.gffny.com
+    domainName: api.qa.leaderboard.gffny.com
     basePath: ''
     stage: ${self:provider.stage}
     createRoute53Record: true
@@ -85,10 +85,10 @@ prod: # production env config
 
   ### Prod Environment specific configuration ###
 
-  host: "leaderboard.api.prod.gffny.com" # used for swagger API docs endpoint
+  host: "api.prod.leaderboard.gffny.com" # used for swagger API docs endpoint
 
   customDomain:
-    domainName: leaderboard.api.prod.gffny.com
+    domainName: api.prod.leaderboard.gffny.com
     basePath: ''
     stage: ${self:provider.stage}
     createRoute53Record: true
