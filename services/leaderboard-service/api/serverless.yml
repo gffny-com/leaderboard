@@ -4,7 +4,7 @@ provider: # General deployment information for the service in AWS
   name: aws
   runtime: nodejs8.10
   stage: ${opt:stage, 'local'}
-  region: ${opt:region, 'us-west-1'}
+  region: ${opt:region, 'us-east-1'}
   stackName: ${self:custom.serviceName}-${opt:stage}
   deploymentBucket:
     name: ${opt:stage}-gffny-${self:custom.serviceName}
