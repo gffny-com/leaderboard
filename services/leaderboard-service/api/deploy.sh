@@ -5,4 +5,4 @@ npm install serverless-offline --save-dev.
 
 echo "deploying serivce to ${1} environment"
 
-serverless deploy --verbose --stage ${1}
+serverless deploy --force --verbose --stage ${1}
