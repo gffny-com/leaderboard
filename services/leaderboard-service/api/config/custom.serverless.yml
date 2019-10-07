@@ -68,6 +68,10 @@ qa: # qa env config
     stage: ${self:provider.stage}
     createRoute53Record: true
 
+  DB_USERNAME: "leaderboard"
+  DB_PASSWORD: "letmein123"
+  DB_NAME: "leaderboard-service-${opt:stage}"
+
 prod: # production env config
   environment: 
     NODE_TLS_REJECT_UNAUTHORIZED: 0
