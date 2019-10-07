@@ -10,8 +10,8 @@ cache:
   directories:
     - node_modules  
 install:
-  - pip install --upgrade pip
-  - sudo pip3 install --upgrade awscli
+  - sudo pip install --upgrade pip
+  - sudo pip3 install --upgrade awsclix
   - npm install -g lerna
   - npm install serverless -g
   - npm install jest -g
