@@ -1,0 +1,11 @@
+{
+    "name": "@gffny/round-analysis-service-api",
+    "version": "0.0.1",
+    "description": "analysis service api",
+    "main": "index.js",
+    "scripts": {
+        "test": "unit"
+    },
+    "author": "",
+    "license": "ISC"
+}
