@@ -19,7 +19,8 @@ export const refreshRoundAction = (roundId) => {
             .then(jsonPayload => {
                 dispatch(refreshRoundCourseAction(jsonPayload.course.id));
                 dispatch(createRefreshRoundComplete(jsonPayload))
-            });
+            })
+            .catch(err => console.log(err));
     };
 };
 
