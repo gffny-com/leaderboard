@@ -1,0 +1,13 @@
+getRoundAnalysis:
+    handler: src/handlers/roundAnalysis.getRoundAnalysis
+    name: ${opt:stage}-getRoundAnalysis
+    events:
+        - http:
+              path: rounds/analysis/{id}
+              method: get
+              cors: ${file(../../.common/configs/api-gw-cors-no-auth.serverless.yml)}
+              documentation: ${file(./config/documentation.serverless.yml):getRoundAnalysis}
+              request:
+                  parameters:
+                      paths:
+                          id: true

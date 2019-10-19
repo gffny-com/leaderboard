@@ -1,0 +1,37 @@
+service: ${self:custom.serviceName}
+
+provider: # General deployment information for the service in AWS
+    name: aws
+    runtime: nodejs10.x
+    stage: ${opt:stage, 'local'}
+    region: ${opt:region, 'us-east-1'}
+    stackName: gffny-${self:custom.serviceName}-${opt:stage}
+    deploymentBucket:
+        name: gffny-${self:custom.serviceName}-${opt:stage}
+        tags:
+            Environment: ${opt:stage}
+            Application: ${self:provider.stackName}
+    tracing:
+        lambda: true
+
+    # Environment variables available to the lambdas (TODO: use parameter store instead of setting these)
+    # environment:
+    #   ${self:custom.environment}
+    # iamRoleStatements: # Specifies the IAM role assigned to the lambdas that defines access to other AWS resources (dynamo, VPC, etc)
+    #   ${file(./config/iamRoleStatements.serverless.yml)}
+
+functions: # Reference to serverless config file specifying lambda functions configuration
+    ${file(./config/functions.serverless.yml)}
+
+resources: # Reference to serverless config file containing raw AWS CloudFormation
+    ${file(./config/resources.serverless.yml)}
+
+custom: # Reference to serverless config file containing additional configuration like that required by serverless plugins
+    ${file(./config/custom.serverless.yml):${opt:stage}}
+
+plugins: # Serverless plugins (note: cannot be moved to an external file)
+    - serverless-offline
+    - serverless-aws-documentation
+    - serverless-jest-plugin
+    - serverless-domain-manager
+    - serverless-deployment-bucket

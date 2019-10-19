@@ -1,0 +1,31 @@
+api:
+    info:
+        description: 'Round Analysis API'
+        version: '0.1'
+        title: 'Round Analysis API'
+    host: ${file(./config/custom.serverless.yml):${opt:stage}.host}
+    basePath: '/${opt:stage}'
+
+getRoundAnalysis:
+    tags:
+        - roundanalysis
+    summary: 'Retrieve round analysis details'
+    description: 'Retrieve round analysis details'
+    methodResponses:
+        - statusCode: '200'
+          responseBody:
+              description: 'Response Body Description'
+          responseModels:
+              'application/json': 'RoundAnalysis'
+        - statusCode: '404'
+          responseBody:
+              description: 'Round analysis not found'
+
+modelSchemas:
+    GetRoundAnalysisResponse:
+        type: 'object'
+        required:
+            - 'id'
+        properties:
+            id:
+                type: string

@@ -3,7 +3,7 @@ local: # local developer env config
         NODE_TLS_REJECT_UNAUTHORIZED: 0
         CONFIG_JSON_FILE: './config/service-local.config.json'
 
-    serviceName: 'leaderboard-service'
+    serviceName: 'round-analysis-service'
 
     stage: ${opt:stage, self:provider.stage}
 
@@ -16,13 +16,13 @@ local: # local developer env config
     ##### Local Environment specific configuration ####
 
     serverless-offline: # port used for locally running service
-        port: 4001
+        port: 4002
 
 dev: # dev/qa env config
     environment:
         NODE_TLS_REJECT_UNAUTHORIZED: 0
 
-    serviceName: 'leaderboard-service'
+    serviceName: 'round-analysis-service'
 
     stage: ${opt:stage, self:provider.stage}
 
@@ -46,7 +46,7 @@ qa: # qa env config
     environment:
         NODE_TLS_REJECT_UNAUTHORIZED: 0
 
-    serviceName: 'leaderboard-service'
+    serviceName: 'round-analysis-service'
 
     stage: ${opt:stage, self:provider.stage}
 
@@ -74,7 +74,7 @@ prod: # production env config
     environment:
         NODE_TLS_REJECT_UNAUTHORIZED: 0
 
-    serviceName: 'leaderboard-service'
+    serviceName: 'round-analysis-service'
 
     stage: ${opt:stage, self:provider.stage}
 
