@@ -1,2 +1,2 @@
 Resources:
-    MySqlRDSInstance: ${file(./config/resource/MySqlRDSInstance.yml)}
+    #MySqlRDSInstance: ${file(./config/resource/MySqlRDSInstance.yml)}

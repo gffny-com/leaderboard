@@ -1,98 +1,95 @@
 local: # local developer env config
-  environment:
-    NODE_TLS_REJECT_UNAUTHORIZED: 0
-    CONFIG_JSON_FILE: './config/service-local.config.json'
+    environment:
+        NODE_TLS_REJECT_UNAUTHORIZED: 0
+        CONFIG_JSON_FILE: './config/service-local.config.json'
 
-  serviceName: "leaderboard-service"
+    serviceName: 'leaderboard-service'
 
-  stage: ${opt:stage, self:provider.stage}
+    stage: ${opt:stage, self:provider.stage}
 
-  documentation: # used by serverless-aws-documentation 
-    ${file(./config/documentation.serverless.yml)}
+    documentation: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml)}
 
-  modelSchemas: # used by serverless-aws-documentation 
-    ${file(./config/documentation.serverless.yml):modelSchemas}
+    modelSchemas: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml):modelSchemas}
 
-  host: "leaderboard.api.dev.gffny.com" # used for swagger API docs endpoint
+    ##### Local Environment specific configuration ####
 
-  ##### Local Environment specific configuration ####
-
-  serverless-offline: # port used for locally running service
-    port: 4001
+    serverless-offline: # port used for locally running service
+        port: 4001
 
 dev: # dev/qa env config
-  environment: 
-    NODE_TLS_REJECT_UNAUTHORIZED: 0
+    environment:
+        NODE_TLS_REJECT_UNAUTHORIZED: 0
 
-  serviceName: "leaderboard-service"
+    serviceName: 'leaderboard-service'
 
-  stage: ${opt:stage, self:provider.stage}
+    stage: ${opt:stage, self:provider.stage}
 
-  documentation: # used by serverless-aws-documentation 
-    ${file(./config/documentation.serverless.yml)}
+    documentation: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml)}
 
-  modelSchemas: # used by serverless-aws-documentation 
-    ${file(./config/documentation.serverless.yml):modelSchemas}
+    modelSchemas: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml):modelSchemas}
 
-  ### Dev/QA Environment specific configuration ###
+    ### Dev/QA Environment specific configuration ###
 
-  host: "api.dev.leaderboard.gffny.com" # used for swagger API docs endpoint
+    host: 'api.dev.leaderboard.gffny.com' # used for swagger API docs endpoint
 
-  customDomain:
-    domainName: api.dev.leaderboard.gffny.com
-    basePath: ''
-    stage: ${self:provider.stage}
-    createRoute53Record: true
+    customDomain:
+        domainName: api.dev.leaderboard.gffny.com
+        basePath: 'v1'
+        stage: ${self:provider.stage}
+        createRoute53Record: true
 
 qa: # qa env config
-  environment: 
-    NODE_TLS_REJECT_UNAUTHORIZED: 0
+    environment:
+        NODE_TLS_REJECT_UNAUTHORIZED: 0
 
-  serviceName: "leaderboard-service"
+    serviceName: 'leaderboard-service'
 
-  stage: ${opt:stage, self:provider.stage}
+    stage: ${opt:stage, self:provider.stage}
 
-  documentation: # used by serverless-aws-documentation 
-    ${file(./config/documentation.serverless.yml)}
+    documentation: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml)}
 
-  modelSchemas: # used by serverless-aws-documentation 
-    ${file(./config/documentation.serverless.yml):modelSchemas}
+    modelSchemas: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml):modelSchemas}
 
-  ### Dev/QA Environment specific configuration ###
+    ### Dev/QA Environment specific configuration ###
 
-  host: "api.qa.leaderboard.gffny.com" # used for swagger API docs endpoint
+    host: 'api.qa.leaderboard.gffny.com' # used for swagger API docs endpoint
 
-  customDomain:
-    domainName: api.qa.leaderboard.gffny.com
-    basePath: ''
-    stage: ${self:provider.stage}
-    createRoute53Record: true
+    customDomain:
+        domainName: api.qa.leaderboard.gffny.com
+        basePath: 'v1'
+        stage: ${self:provider.stage}
+        createRoute53Record: true
 
-  DB_USERNAME: "leaderboard"
-  DB_PASSWORD: "letmein123"
-  DB_NAME: "leaderboard-service-${opt:stage}"
+    DB_USERNAME: 'leaderboard'
+    DB_PASSWORD: 'letmein123'
+    DB_NAME: 'leaderboard-service-${opt:stage}'
 
 prod: # production env config
-  environment: 
-    NODE_TLS_REJECT_UNAUTHORIZED: 0
-    CONFIG_PARAM_STORE_BASE_PATH: '/apollo/shared-services/prod'
+    environment:
+        NODE_TLS_REJECT_UNAUTHORIZED: 0
 
-  serviceName: "funding-management-service"
+    serviceName: 'funding-management-service'
 
-  stage: ${opt:stage, self:provider.stage}
+    stage: ${opt:stage, self:provider.stage}
 
-  documentation: # used by serverless-aws-documentation 
-    ${file(./config/documentation.serverless.yml)}
+    documentation: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml)}
 
-  modelSchemas: # used by serverless-aws-documentation 
-    ${file(./config/documentation.serverless.yml):modelSchemas}
+    modelSchemas: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml):modelSchemas}
 
-  ### Prod Environment specific configuration ###
+    ### Prod Environment specific configuration ###
 
-  host: "api.prod.leaderboard.gffny.com" # used for swagger API docs endpoint
+    host: 'api.prod.leaderboard.gffny.com' # used for swagger API docs endpoint
 
-  customDomain:
-    domainName: api.prod.leaderboard.gffny.com
-    basePath: ''
-    stage: ${self:provider.stage}
-    createRoute53Record: true
+    customDomain:
+        domainName: api.prod.leaderboard.gffny.com
+        basePath: 'v1'
+        stage: ${self:provider.stage}
+        createRoute53Record: true
