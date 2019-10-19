@@ -1,0 +1,95 @@
+local: # local developer env config
+    environment:
+        NODE_TLS_REJECT_UNAUTHORIZED: 0
+        CONFIG_JSON_FILE: './config/service-local.config.json'
+
+    serviceName: 'round-analysis-service'
+
+    stage: ${opt:stage, self:provider.stage}
+
+    documentation: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml)}
+
+    modelSchemas: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml):modelSchemas}
+
+    ##### Local Environment specific configuration ####
+
+    serverless-offline: # port used for locally running service
+        port: 4002
+
+dev: # dev/qa env config
+    environment:
+        NODE_TLS_REJECT_UNAUTHORIZED: 0
+
+    serviceName: 'round-analysis-service'
+
+    stage: ${opt:stage, self:provider.stage}
+
+    documentation: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml)}
+
+    modelSchemas: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml):modelSchemas}
+
+    ### Dev/QA Environment specific configuration ###
+
+    host: 'api.dev.leaderboard.gffny.com' # used for swagger API docs endpoint
+
+    customDomain:
+        domainName: api.dev.leaderboard.gffny.com
+        basePath: 'v1'
+        stage: ${self:provider.stage}
+        createRoute53Record: true
+
+qa: # qa env config
+    environment:
+        NODE_TLS_REJECT_UNAUTHORIZED: 0
+
+    serviceName: 'round-analysis-service'
+
+    stage: ${opt:stage, self:provider.stage}
+
+    documentation: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml)}
+
+    modelSchemas: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml):modelSchemas}
+
+    ### Dev/QA Environment specific configuration ###
+
+    host: 'api.qa.leaderboard.gffny.com' # used for swagger API docs endpoint
+
+    customDomain:
+        domainName: api.qa.leaderboard.gffny.com
+        basePath: 'v1'
+        stage: ${self:provider.stage}
+        createRoute53Record: true
+
+    DB_USERNAME: 'leaderboard'
+    DB_PASSWORD: 'letmein123'
+    DB_NAME: 'leaderboard-service-${opt:stage}'
+
+prod: # production env config
+    environment:
+        NODE_TLS_REJECT_UNAUTHORIZED: 0
+
+    serviceName: 'round-analysis-service'
+
+    stage: ${opt:stage, self:provider.stage}
+
+    documentation: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml)}
+
+    modelSchemas: # used by serverless-aws-documentation
+        ${file(./config/documentation.serverless.yml):modelSchemas}
+
+    ### Prod Environment specific configuration ###
+
+    host: 'api.prod.leaderboard.gffny.com' # used for swagger API docs endpoint
+
+    customDomain:
+        domainName: api.prod.leaderboard.gffny.com
+        basePath: 'v1'
+        stage: ${self:provider.stage}
+        createRoute53Record: true
