@@ -74,7 +74,7 @@ prod: # production env config
     environment:
         NODE_TLS_REJECT_UNAUTHORIZED: 0
 
-    serviceName: 'funding-management-service'
+    serviceName: 'leaderboard-service'
 
     stage: ${opt:stage, self:provider.stage}
 
