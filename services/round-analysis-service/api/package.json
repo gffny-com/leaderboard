@@ -9,7 +9,7 @@
         "integration": "jest --testRegex 'test/.*integration-test.*'",
         "deploy": "./deploy.sh",
         "prunepackages": "npm prune --production",
-        "start": "npm-run-all -p -c start-local-round-analysis-services",
+        "start": "npm run start-local-round-analysis-services",
         "start-local-round-analysis-services": "sls offline --stage local --stream",
         "debug-local": "node --inspect ./node_modules/serverless/bin/serverless offline --stage local  --stream"
     },
