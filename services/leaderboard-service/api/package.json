@@ -22,7 +22,7 @@
         "serverless-deployment-bucket": "^1.1.0",
         "serverless-domain-manager": "^3.2.2",
         "serverless-dynamodb-local": "0.2.37",
-        "serverless-jest-plugin": "^0.2.1",
+        "serverless-jest-plugin": "^0.4.0",
         "serverless-offline": "^4.10.6",
         "serverless-plugin-optimize": "^4.0.2-rc.1"
     },
